@@ -433,7 +433,8 @@ button {
 }
 
 .close-modal,
-.close-login-modal {
+.close-login-modal,
+.close-announcements-modal {
   position: absolute;
   right: 12px;
   top: 8px;
@@ -622,6 +623,9 @@ footer {
 #user-status {
   display: flex;
   align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 #user-info {
@@ -663,4 +667,199 @@ footer {
 
 #logout-button:hover {
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Announcements */
+#announcements-container {
+  margin-bottom: 15px;
+}
+
+#announcements-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.announcement-card {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background-color: var(--surface);
+}
+
+.announcement-message {
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.announcement-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.empty-announcements {
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  color: var(--text-secondary);
+  background-color: var(--background);
+  font-size: 0.85rem;
+}
+
+/* Announcement management modal */
+.announcements-modal-content {
+  width: 94%;
+  max-width: 780px;
+}
+
+.announcements-modal-content h3 {
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.announcement-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-group label {
+  font-size: 0.8rem;
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 10px;
+  font-size: 0.85rem;
+  color: var(--text-primary);
+  background-color: var(--surface);
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-light);
+}
+
+.announcement-date-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.announcement-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.secondary-button {
+  background-color: var(--background);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.secondary-button:hover {
+  background-color: var(--border-light);
+}
+
+.danger-button {
+  background-color: var(--error);
+  color: var(--secondary-text);
+}
+
+.announcement-manage-list-container h4 {
+  color: var(--primary);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+#manage-announcements-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.manage-announcement-item {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+  background-color: var(--surface);
+}
+
+.manage-announcement-main {
+  flex: 1;
+}
+
+.manage-announcement-main p {
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+}
+
+.manage-announcement-meta {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.manage-announcement-actions {
+  display: flex;
+  gap: 6px;
+}
+
+@media (max-width: 767px) {
+  #user-controls {
+    position: static;
+    margin-top: 10px;
+  }
+
+  #user-status {
+    justify-content: center;
+  }
+
+  .announcement-date-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .manage-announcement-item {
+    flex-direction: column;
+  }
+
+  .manage-announcement-actions {
+    width: 100%;
+  }
+
+  .manage-announcement-actions button {
+    flex: 1;
+  }
 }
